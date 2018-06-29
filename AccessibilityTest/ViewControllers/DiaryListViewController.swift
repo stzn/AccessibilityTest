@@ -24,6 +24,7 @@ final class DiaryListViewController: UIViewController {
     }
 }
 
+// MARK: UITableViewDatasource
 extension DiaryListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

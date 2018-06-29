@@ -26,10 +26,12 @@ class HomeworkCell: UITableViewCell {
                 switch homework.priority {
                 case .norating:
                     priority.text = "☆☆☆☆☆"
+                    priority.accessibilityLabel = "難易度 なし"
                 case .rating(let value):
                     let stars = String(repeating: "★", count: value)
                     let noStars = String(repeating: "☆", count: 5 - value)
                     priority.text = "\(stars)\(noStars)"
+                    priority.accessibilityLabel = "難易度 \(value)"
                 }
             }
         }

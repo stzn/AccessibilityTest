@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TodoViewController: UIViewController {
+class TodoAfterViewController: UIViewController {
     
-    static let identifier = "todo"
- 
+    static let identifier = "todoafter"
+
     var viewModel: TodoViewModel!
 
     @IBOutlet weak var tableView: UITableView!
@@ -31,7 +31,7 @@ class TodoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         guard let nv = navigationController,
             let vc = nv.viewControllers.last as? HomeworkViewController,
             let index = vc.works.index(where:{$0.id == viewModel.homework.id}) else {
@@ -43,7 +43,7 @@ class TodoViewController: UIViewController {
 }
 
 // MARK: Actions
-extension TodoViewController {
+extension TodoAfterViewController {
     @IBAction func onTrackTapped(_ sender: UIButton) {
         viewModel.homework.toggleIsOnTrack()
         setOnTrackButton()
@@ -57,9 +57,21 @@ extension TodoViewController {
     }
 }
 
-// MARK: SetupViews
-extension TodoViewController {
+
+// MARK: setupView & Accessibility
+extension TodoAfterViewController {
     
+    override func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool {
+        if direction == .right {
+            guard let nv = navigationController else {
+                return false
+            }
+            nv.popViewController(animated: true)
+            return true
+        }
+        return true
+    }
+
     private func setupViews() {
         homeworkImage.image = UIImage(named: viewModel.homework.imageUrl)
         homeworkTitle.text = viewModel.homework.title
@@ -69,14 +81,21 @@ extension TodoViewController {
 
     private func setBackButton() {
         backButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        backButton.accessibilityLabel = "戻る"
+        backButton.accessibilityTraits = UIAccessibilityTraitButton
     }
     
     private func setOnTrackButton() {
         if viewModel.homework.isOnTrack {
             onTrackButton.setTitle("😆", for: .normal)
+            onTrackButton.accessibilityLabel = "順調"
+            onTrackButton.accessibilityTraits = UIAccessibilityTraitButton
         } else {
             onTrackButton.setTitle("😇", for: .normal)
+            onTrackButton.accessibilityLabel = "遅れている"
+            onTrackButton.accessibilityTraits = UIAccessibilityTraitButton
         }
+        onTrackButton.accessibilityHint = "ボタンを押すと順調か遅れているかを切り替えます"
         
         // ボタンのタイトルはコードで設定するしか場所がない？？？
         onTrackButton.titleLabel?.adjustsFontForContentSizeCategory = true
@@ -88,10 +107,11 @@ extension TodoViewController {
         
         tableView.dataSource = self
     }
+    
 }
 
 // MARK: UITableViewDatasource
-extension TodoViewController: UITableViewDataSource {
+extension TodoAfterViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
@@ -103,39 +123,40 @@ extension TodoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoCell.identifier, for: indexPath) as? TodoCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoAfterCell.identifier, for: indexPath) as? TodoAfterCell else {
             fatalError("Invalid Cell")
         }
         cell.tag = indexPath.row
         cell.delegate = self
         cell.todo = viewModel.itemFor(indexPath.row)
-        
         return cell
     }
 }
 
 // MARK: UITableViewDelegate
-extension TodoViewController: UITableViewDelegate {
+extension TodoAfterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
         viewModel.selectItem(indexPath.row)
         
-        guard let cell = tableView.cellForRow(at: indexPath) as? TodoCell else {
+        guard let cell = tableView.cellForRow(at: indexPath) as? TodoAfterCell else {
             fatalError("invalid cell")
         }
         cell.shouldStrikeThroughString(viewModel.getState(indexPath.row))
     }
 }
 
-// MARK: TodoCellDelegate
-extension TodoViewController: TodoCellDelegate {
+
+// MARK: TodoAfterCellDelegate
+extension TodoAfterViewController: TodoAfterCellDelegate {
     func checkTapped(tag: Int) {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: tag, section: 0)) as? TodoCell else {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: tag, section: 0)) as? TodoAfterCell else {
             return
         }
         viewModel.homework.todos[tag].toggleIsCompleted()
         cell.shouldStrikeThroughString(!cell.checkButton.isSelected)
     }
 }
+

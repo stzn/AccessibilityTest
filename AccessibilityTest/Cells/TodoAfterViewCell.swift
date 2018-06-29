@@ -8,16 +8,17 @@
 
 import UIKit
 
-protocol TodoCellDelegate: class {
+protocol TodoAfterCellDelegate: class {
     func checkTapped(tag: Int)
 }
 
-final class TodoCell: UITableViewCell {
+final class TodoAfterCell: UITableViewCell {
+    
+    static let identifier = "todoafter"
+    
+    weak var delegate: TodoAfterCellDelegate? = nil
+    var tapGesture: UITapGestureRecognizer!
 
-    static let identifier = "todo"
-    
-    weak var delegate: TodoCellDelegate? = nil
-    
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var content: UILabel!
     
@@ -33,8 +34,16 @@ final class TodoCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setAction()
     }
-
+    
+    private func setAction() {
+        tapGesture = UITapGestureRecognizer()
+        tapGesture.addTarget(self, action: #selector(cellLongPressed))
+        addGestureRecognizer(tapGesture)
+    }
+    
+    
     @IBAction func checkTapped(_ sender: UIButton) {
         delegate?.checkTapped(tag: tag)
     }
@@ -46,16 +55,20 @@ final class TodoCell: UITableViewCell {
         
         let attributedString = NSMutableAttributedString(string: text)
         
-//        checkButton.isAccessibilityElement = false
+        checkButton.isAccessibilityElement = false
         
         if strikeThrough {
-//            content.accessibilityLabel = "Completed: \(text)"
+            content.accessibilityLabel = "完了: \(text)"
             attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
         } else {
-//            content.accessibilityLabel = "Uncompleted: \(text)"
+            content.accessibilityLabel = "未完了: \(text)"
         }
         
         checkButton.isSelected = strikeThrough
         content.attributedText = attributedString
+    }
+    
+    @objc func cellLongPressed() {
+        delegate?.checkTapped(tag: tag)
     }
 }

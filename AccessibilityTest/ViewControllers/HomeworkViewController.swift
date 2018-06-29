@@ -24,6 +24,7 @@ final class HomeworkViewController: UIViewController {
     }
 }
 
+// MARK: UITableViewDataSource
 extension HomeworkViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,6 +47,7 @@ extension HomeworkViewController: UITableViewDataSource {
     }
 }
 
+// MARK: UITableViewDelegate
 extension HomeworkViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -54,7 +56,7 @@ extension HomeworkViewController: UITableViewDelegate {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard
             let nv = navigationController,
-            let vc = sb.instantiateViewController(withIdentifier: "todo") as? TodoViewController else {
+            let vc = sb.instantiateViewController(withIdentifier: TodoAfterViewController.identifier) as? TodoAfterViewController else {
             return
         }
         vc.viewModel = TodoViewModel(homework: works[indexPath.row])

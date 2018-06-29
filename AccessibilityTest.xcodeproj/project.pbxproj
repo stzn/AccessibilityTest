@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AB21C74620E1A98800DF5B5E /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C74520E1A98800DF5B5E /* TodoViewController.swift */; };
+		AB5D774D20E584BB00957087 /* TodoAfterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5D774C20E584BB00957087 /* TodoAfterViewController.swift */; };
+		AB5D774F20E5857000957087 /* TodoAfterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5D774E20E5857000957087 /* TodoAfterViewCell.swift */; };
 		AB912B6220E43A90009853A2 /* HomeworkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB912B6120E43A90009853A2 /* HomeworkCell.swift */; };
 		AB912B6420E43BB3009853A2 /* Homework.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB912B6320E43BB3009853A2 /* Homework.swift */; };
 		AB912B6820E444E7009853A2 /* Homeworks.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB912B6720E444E7009853A2 /* Homeworks.plist */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		AB21C74520E1A98800DF5B5E /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		AB5D774C20E584BB00957087 /* TodoAfterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAfterViewController.swift; sourceTree = "<group>"; };
+		AB5D774E20E5857000957087 /* TodoAfterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAfterViewCell.swift; sourceTree = "<group>"; };
 		AB912B6120E43A90009853A2 /* HomeworkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkCell.swift; sourceTree = "<group>"; };
 		AB912B6320E43BB3009853A2 /* Homework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homework.swift; sourceTree = "<group>"; };
 		AB912B6720E444E7009853A2 /* Homeworks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Homeworks.plist; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				ABD96BB220E05201007BFC45 /* DiaryListViewController.swift */,
 				AB21C74520E1A98800DF5B5E /* TodoViewController.swift */,
 				AB912B6920E449CB009853A2 /* HomeworkViewController.swift */,
+				AB5D774C20E584BB00957087 /* TodoAfterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				ABD96BE720E07149007BFC45 /* DiaryCell.swift */,
 				AB912B6120E43A90009853A2 /* HomeworkCell.swift */,
 				AB912B6D20E45258009853A2 /* TodoCell.swift */,
+				AB5D774E20E5857000957087 /* TodoAfterViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -282,7 +288,9 @@
 				ABD96BE920E07149007BFC45 /* DiaryCell.swift in Sources */,
 				AB912B7120E45452009853A2 /* TodoViewModel.swift in Sources */,
 				AB912B6A20E449CB009853A2 /* HomeworkViewController.swift in Sources */,
+				AB5D774F20E5857000957087 /* TodoAfterViewCell.swift in Sources */,
 				ABD96BB320E05201007BFC45 /* DiaryListViewController.swift in Sources */,
+				AB5D774D20E584BB00957087 /* TodoAfterViewController.swift in Sources */,
 				AB912B6220E43A90009853A2 /* HomeworkCell.swift in Sources */,
 				ABD96BE220E06E19007BFC45 /* DiaryDataSource.swift in Sources */,
 				ABD96BDE20E06797007BFC45 /* UserDataSource.swift in Sources */,
