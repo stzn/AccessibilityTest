@@ -56,6 +56,7 @@ extension HomeworkViewController: UITableViewDelegate {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard
             let nv = navigationController,
+//            let vc = sb.instantiateViewController(withIdentifier: TodoViewController.identifier) as? TodoViewController else {
             let vc = sb.instantiateViewController(withIdentifier: TodoAfterViewController.identifier) as? TodoAfterViewController else {
             return
         }

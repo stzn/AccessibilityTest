@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol DiaryCellDelegate: class {
+    func chatButtonTapped(_ tag: Int)
+}
+
 class DiaryCell: UITableViewCell {
     
     static let identifier = "diary"
+    weak var delegate: DiaryCellDelegate? = nil
     
     private let userName = UILabel()
     private let diaryImage = UIImageView()
@@ -66,6 +71,19 @@ class DiaryCell: UITableViewCell {
         updateLayoutContraints()
     }
     
+
+    let margin: CGFloat = 16.0
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        let userSize = userName.sizeThatFits(CGSize(width: self.contentView.bounds.width, height: .greatestFiniteMagnitude))
+        let dateSize = date.sizeThatFits(CGSize(width: self.contentView.bounds.width, height: .greatestFiniteMagnitude))
+        let contentSize = content.sizeThatFits(CGSize(width: self.contentView.bounds.width, height: .greatestFiniteMagnitude))
+        return CGSize(width: self.contentView.bounds.width, height: userSize.height + dateSize.height + contentSize.height + margin * 5)
+    }
+    
+    @objc private func chatTapped(_ button: UIButton) {
+        delegate?.chatButtonTapped(self.tag)
+    }
+    
     private func setupViews() {
         
         chatButton.setTitle("コメント", for: .normal)
@@ -80,6 +98,8 @@ class DiaryCell: UITableViewCell {
         chatButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
         chatButton.titleLabel?.adjustsFontForContentSizeCategory = true
         chatButton.setContentHuggingPriority(.required, for: .horizontal)
+        
+        chatButton.addTarget(self, action: #selector(chatTapped(_:)), for: .touchUpInside)
         
         diaryImage.translatesAutoresizingMaskIntoConstraints = false
         

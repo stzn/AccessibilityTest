@@ -81,8 +81,10 @@ extension TodoAfterViewController {
 
     private func setBackButton() {
         backButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        backButton.accessibilityLabel = "戻る"
         backButton.accessibilityTraits = UIAccessibilityTraitButton
+        backButton.accessibilityLabel = "戻る"
+        backButton.accessibilityValue = ""
+        backButton.accessibilityHint = "前の画面に戻ります。"
     }
     
     private func setOnTrackButton() {
@@ -137,6 +139,7 @@ extension TodoAfterViewController: UITableViewDataSource {
 extension TodoAfterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: false)
         
         viewModel.selectItem(indexPath.row)

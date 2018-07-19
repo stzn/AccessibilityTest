@@ -20,7 +20,10 @@ class HomeworkCell: UITableViewCell {
     var homework: Homework? {
         didSet {
             if let homework = homework {
-                todoImage.image = UIImage(named: homework.imageUrl)
+                
+                if let image = UIImage(named: homework.imageUrl) {
+                    todoImage.image = image
+                }
                 title.text = homework.title
 
                 switch homework.priority {

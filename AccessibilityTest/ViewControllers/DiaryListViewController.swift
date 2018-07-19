@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class DiaryListViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var diaries = DiaryDataSource.diaries()
@@ -21,6 +22,7 @@ final class DiaryListViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
@@ -42,7 +44,51 @@ extension DiaryListViewController: UITableViewDataSource {
         }
         
         cell.diary = diaries[indexPath.row]
+        cell.delegate = self
         
         return cell
     }
 }
+
+// MARK: UITableViewDatasource
+extension DiaryListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+}
+
+// MARK: DiaryCellDelegate
+extension DiaryListViewController: DiaryCellDelegate {
+    func chatButtonTapped(_ tag: Int) {
+        showCommentAlert()
+    }
+    
+    private func showCommentAlert() {
+        
+        let alert = UIAlertController(title: "コメント", message: "", preferredStyle: .alert)
+        alert.addTextField { field in
+            field.placeholder = "入力してください"
+            field.adjustsFontForContentSizeCategory = true
+        }
+        
+        let ok = UIAlertAction(title: "登録", style: .default) { _ in
+            
+            guard let f = alert.textFields?.first,
+                let text = f.text, !text.isEmpty else {
+                return
+            }
+            let syntherizer = AVSpeechSynthesizer()
+            let voice = AVSpeechSynthesisVoice(language: "ja-JP")
+            let utterance = AVSpeechUtterance(string: "登録が完了しました。\(text)")
+            utterance.voice = voice
+            syntherizer.speak(utterance)
+        }
+        alert.addAction(ok)
+        
+        let cancel = UIAlertAction(title: "キャンセル", style: .destructive)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
+}
+

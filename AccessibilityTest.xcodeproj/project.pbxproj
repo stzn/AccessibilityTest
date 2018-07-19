@@ -17,6 +17,7 @@
 		AB912B6C20E449FC009853A2 /* HomeworkDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB912B6B20E449FC009853A2 /* HomeworkDatasource.swift */; };
 		AB912B6E20E45258009853A2 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB912B6D20E45258009853A2 /* TodoCell.swift */; };
 		AB912B7120E45452009853A2 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB912B7020E45452009853A2 /* TodoViewModel.swift */; };
+		ABAB6A4F20FFF73500DEA837 /* SunflowerRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAB6A4E20FFF73500DEA837 /* SunflowerRecordViewController.swift */; };
 		ABD96BB120E05201007BFC45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96BB020E05201007BFC45 /* AppDelegate.swift */; };
 		ABD96BB320E05201007BFC45 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96BB220E05201007BFC45 /* DiaryListViewController.swift */; };
 		ABD96BB620E05201007BFC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD96BB420E05201007BFC45 /* Main.storyboard */; };
@@ -28,6 +29,8 @@
 		ABD96BE020E06ABD007BFC45 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96BDF20E06ABD007BFC45 /* Diary.swift */; };
 		ABD96BE220E06E19007BFC45 /* DiaryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96BE120E06E19007BFC45 /* DiaryDataSource.swift */; };
 		ABD96BE920E07149007BFC45 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD96BE720E07149007BFC45 /* DiaryCell.swift */; };
+		ABDC339820FFE6CB0038F76E /* SunflowerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC339720FFE6CB0038F76E /* SunflowerRecord.swift */; };
+		ABDC339B20FFEB2F0038F76E /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC339A20FFEB2F0038F76E /* BarChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,7 @@
 		AB912B6B20E449FC009853A2 /* HomeworkDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkDatasource.swift; sourceTree = "<group>"; };
 		AB912B6D20E45258009853A2 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		AB912B7020E45452009853A2 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		ABAB6A4E20FFF73500DEA837 /* SunflowerRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunflowerRecordViewController.swift; sourceTree = "<group>"; };
 		ABD96BAD20E05201007BFC45 /* AccessibilityTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD96BB020E05201007BFC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABD96BB220E05201007BFC45 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 		ABD96BDF20E06ABD007BFC45 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		ABD96BE120E06E19007BFC45 /* DiaryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDataSource.swift; sourceTree = "<group>"; };
 		ABD96BE720E07149007BFC45 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
+		ABDC339720FFE6CB0038F76E /* SunflowerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunflowerRecord.swift; sourceTree = "<group>"; };
+		ABDC339A20FFEB2F0038F76E /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,7 @@
 				AB21C74520E1A98800DF5B5E /* TodoViewController.swift */,
 				AB912B6920E449CB009853A2 /* HomeworkViewController.swift */,
 				AB5D774C20E584BB00957087 /* TodoAfterViewController.swift */,
+				ABAB6A4E20FFF73500DEA837 /* SunflowerRecordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 		ABD96BAF20E05201007BFC45 /* AccessibilityTest */ = {
 			isa = PBXGroup;
 			children = (
+				ABDC339920FFEA2A0038F76E /* Views */,
 				AB912B6F20E453D7009853A2 /* ViewModels */,
 				AB21C74420E1A94600DF5B5E /* ViewControllers */,
 				ABD96BDA20E0634B007BFC45 /* DataSources */,
@@ -167,6 +175,7 @@
 				ABD96BDF20E06ABD007BFC45 /* Diary.swift */,
 				AB912B6320E43BB3009853A2 /* Homework.swift */,
 				AB912B6720E444E7009853A2 /* Homeworks.plist */,
+				ABDC339720FFE6CB0038F76E /* SunflowerRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +188,14 @@
 				AB912B6B20E449FC009853A2 /* HomeworkDatasource.swift */,
 			);
 			path = DataSources;
+			sourceTree = "<group>";
+		};
+		ABDC339920FFEA2A0038F76E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ABDC339A20FFEB2F0038F76E /* BarChartView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +248,11 @@
 				TargetAttributes = {
 					ABD96BAC20E05201007BFC45 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					ABD96BC020E05202007BFC45 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = ABD96BAC20E05201007BFC45;
 					};
 				};
@@ -288,9 +307,11 @@
 				ABD96BE920E07149007BFC45 /* DiaryCell.swift in Sources */,
 				AB912B7120E45452009853A2 /* TodoViewModel.swift in Sources */,
 				AB912B6A20E449CB009853A2 /* HomeworkViewController.swift in Sources */,
+				ABDC339B20FFEB2F0038F76E /* BarChartView.swift in Sources */,
 				AB5D774F20E5857000957087 /* TodoAfterViewCell.swift in Sources */,
 				ABD96BB320E05201007BFC45 /* DiaryListViewController.swift in Sources */,
 				AB5D774D20E584BB00957087 /* TodoAfterViewController.swift in Sources */,
+				ABAB6A4F20FFF73500DEA837 /* SunflowerRecordViewController.swift in Sources */,
 				AB912B6220E43A90009853A2 /* HomeworkCell.swift in Sources */,
 				ABD96BE220E06E19007BFC45 /* DiaryDataSource.swift in Sources */,
 				ABD96BDE20E06797007BFC45 /* UserDataSource.swift in Sources */,
@@ -298,6 +319,7 @@
 				AB912B6E20E45258009853A2 /* TodoCell.swift in Sources */,
 				AB21C74620E1A98800DF5B5E /* TodoViewController.swift in Sources */,
 				ABD96BD920E0626E007BFC45 /* User.swift in Sources */,
+				ABDC339820FFE6CB0038F76E /* SunflowerRecord.swift in Sources */,
 				ABD96BB120E05201007BFC45 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DQCWCUF4A4;
 				INFOPLIST_FILE = AccessibilityTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,6 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DQCWCUF4A4;
 				INFOPLIST_FILE = AccessibilityTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,7 +529,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = shiz.sample.AccessibilityTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccessibilityTest.app/AccessibilityTest";
 			};
@@ -526,7 +550,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = shiz.sample.AccessibilityTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccessibilityTest.app/AccessibilityTest";
 			};
